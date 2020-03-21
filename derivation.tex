@@ -1,0 +1,118 @@
+\chapter{Derivation of spreading coefficient limit of declining infection}\label{chap:principles}
+
+In this document I try to develop a model that would help me to understand the
+essential figures and numbers that we should be monitored and measured in order to 
+distinguish the effective and ineffective measures in limiting the spread of
+the COVID19 virus.
+
+I start the derivation from the measured reproduction number $R0$. We know that
+the nature of the growth of the infection is exponential which inherently
+means the disease is spread by infected persons infecting the uninfected ones
+over certain period of time.
+
+With COVID19 there is lots of statistics about number of
+infected persons, daily new cases, deaths and recoveries. Based on these
+statistics we may derive the estimate of the contamination time during which
+the infected patient spreads the disease in such a manner that the daily
+proportional growth equals the monitored reproduction number.
+
+Under assumption that infected persons spread the disease with constant
+fraction of cases per day, the newly infected persons tomorrow can be
+expressed as
+\begin{align}
+    y\left(n+1\right)&=K y\left(n\right)\\
+    K&= \frac{y\left(n+1\right)}{y\left(n\right)}=
+    \frac{y\left(n+1\right)-y\left(n\right)}{y\left(n\right)}+1
+\end{align}
+where $y\left(n\right)$ is the number of infected persons on day $n$. Without
+limiting measures $K$ is assumed here to be relatively constant. 
+
+We may express $K$ as
+\begin{align}
+    K&= 1+S\\
+    S &= \frac{y\left(n+1\right)-y\left(n\right)}{y\left(n\right)},
+\end{align}
+where $S$ is spreading coefficient, the \emph{ ratio of of daily increase of
+    cases  to
+active cases }. It should be noted that any estimation error that is in fixed
+proportion to actually confirmed cases is canceled in calculation of $S$. Thus
+we can state that any measure that gives us proportionally relatively stable
+information will provide us accurate information about $S$.
+
+As shown before, $K_l$ and $S$ can be measured. So can be the reproduction
+number $R_0$, which for the COVID19 have been estimated to be $R_0=2.06 \ldots
+2.52$ \cite{Zhang_S2020}.
+These two expansion mechanisms are related, ans they should match at least in early phases of
+epidemic, when deaths, recoveries, countermeasures, and developing immunity do not hinder the
+spreading. The relation can be expressed as 
+\begin{align}
+    K^{T_c}&= 1+R_0\\
+    T_c&=\frac{log\left(R_0+1\right)}{log\left(K\right)},
+\end{align}
+where $T_c$ is the contamination time, i.e. the effective time during which the patients
+spread the disease. It can be thought as a time before patient get's so
+visibly sick that he will be isolated/quarantined from the community and thus
+does not spread the disease. This time is specific to disease and we may
+assume here it is relatively constant.
+
+We may now denote the spreading coefficient, measured as the ratio of increase
+to the active cases, in the beginning of the epidemic as $S_0$. Thus
+\begin{align}
+    T_c&=\frac{log\left(R_0+1\right)}{log\left(1+S_0\right)}
+\end{align}
+For present COVID19, $S_0$ seems to be, with reasonable number of cases,
+between 0.3 and 0.2, thus we may use $S_0=0.25$ in our example
+calculations. We may now preform an example calculation for contamination
+period 
+\begin{align}
+    S_0&=0.25\\
+    R_0&=2.5\\
+    T_c&=\frac{ln\left(1+R_0\right)}{ln\left(1+S_0\right)}=5,6.
+\end{align}
+Thus the estimate of the contamination time is 5,6 days, and we assume that to
+remain constant.
+
+Under ongoing epidemic, public authorities and private persons perform
+measures to reduce $S$ in order to hinder the spread of the disease. However,
+as $S$ and $R_0$ are connected, we may try to calculate \emph{how low we should
+reduce $S$ in order to stop the epidemic under assumption that $T_T$ does not
+change}. Stopping the epidemic means $R_0< 1$. We may now calculate the limit
+$S_l$ that should result in declining numbers of active patients.
+\begin{align}
+    \left(1+S_l\right)^{T_c}&<2\\
+    S_l&<2^{\frac{ln\left(1+S_0\right)}{ln\left(1+R_0\right)}}-1.
+\end{align}
+With the given values for current COVID19 outbreak $S_l<0.13$. 
+
+In Table~\ref{tab:variants} the obtained values under various assumptions are
+presented.
+\begin{table}[h!]
+  \begin{center}
+      \caption{Spreading coefficient limit value under various assumptions on
+      reproduction number $R_0$ and initial spreading coefficient $S_0$}
+    \label{tab:variants}
+    \begin{tabular}{c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+        \textbf{$R_0$} & \textbf{$S_0$} & \textbf{$T_c$} & \textbf{$S_l$}\\
+      \hline
+      2 &0.25&4,9&0.15 \\
+      2 &0.3&4,2&0.18\\
+      2 &0.4&3,7&0.21\\
+      2.5&0.25&5.6&0.13\\
+      2.5&0.3&4.8&0.16\\
+      2.5&0.4&4.2&0.18\\
+      3 &0.25&6.2&0.11\\
+      3 &0.3&5.3&0.14\\
+      3 &0.4&4.6&0.18\\
+    \end{tabular}
+  \end{center}
+\end{table}
+These values reveal that with given parameter spread there is no
+\emph{practical} difference in contamination time, it lies between 3,7 to 6,2
+days. This means practically two days difference, easily masked by individual
+variation and real life uncertainties. 
+Furthermore we may quite
+certainly say there is no chance of epidemic to stop with spreading factors
+larger than 0,2. Assuming 0.15 might be wishful thinking but may work, and 0.1 should be
+quite safe. Now it is possible to evaluate the theory by comparing it to
+existing data.
+

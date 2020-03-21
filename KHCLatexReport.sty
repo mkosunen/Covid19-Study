@@ -1,0 +1,112 @@
+%Everything is based on Aalto stylefile
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{MNTLatexReport}[2018/12/28 Version 1.0]
+\RequirePackage[utf8]{inputenc}
+
+%set font to helvetica
+\RequirePackage{helvet}
+\renewcommand{\sfdefault}{phv} 
+\renewcommand\familydefault{\sfdefault}
+
+%set font to "times roman"
+%\RequirePackage{newtxtext,newtxmath}
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage[pdftex]{graphicx} 
+\RequirePackage{mathtools}
+\RequirePackage{amsfonts,amssymb,amsbsy,amsmath}
+
+\RequirePackage{enumitem}
+\RequirePackage{epstopdf}
+%\epstopdfsetup{outdir=./}
+\RequirePackage[pdfpagemode=None,colorlinks=true,urlcolor=red,%
+           linkcolor=black,citecolor=black,%
+           pdfstartview=FitH]{hyperref}
+
+\RequirePackage{enumitem}
+\RequirePackage{epstopdf}
+%\epstopdfsetup{outdir=./}
+\RequirePackage[pdfpagemode=None,colorlinks=true,urlcolor=red,%
+           linkcolor=black,citecolor=black,%
+           pdfstartview=FitH]{hyperref}
+
+%Reformat the Section name looks
+\RequirePackage{titlesec}
+\@ifclassloaded{article}{
+    \newcommand{\pnstyle}{plain}
+    }{
+    \newcommand{\pnstyle}{myheadings}
+    \titleformat{\chapter}
+    {\normalfont\large\bfseries}{\thechapter}{1em}{}%
+    \titlespacing*{\chapter}{0pt}{0em}%
+    {0em}% 
+    %Reports do not have ``Chapter 1`` text
+    \renewcommand{\chaptername}{}
+}
+%
+%%Reformat the Chapter name looks
+\titleformat{\section}
+{\normalfont\large\bfseries}{\thesection}{0.5ex}{}
+\titlespacing*{\section}{0pt}{0.5ex}%
+{0.5ex} 
+\titlespacing*{\subsection}{0pt}{0.5ex}%
+{0.5ex} 
+\titlespacing*{\subsubsection}{0pt}{0.5ex}%
+{0.5ex} 
+\titleformat*{\section}{\bfseries}
+\titleformat*{\subsection}{\bfseries}
+\titleformat*{\subsubsection}{\bfseries}
+\titleformat*{\paragraph}{\bfseries}
+\titleformat*{\subparagraph}{\bfseries}
+
+\RequirePackage{subcaption}
+
+%%%Nomenclature package is very handy for symbols and abbreviations.
+%\RequirePackage{ifthen}
+\RequirePackage[intoc]{nomencl}
+
+%%You may rename the Nomenclature chaptername
+%\renewcommand{\nomname}{Abbreviations}
+\renewcommand{\nomname}{Symbols and Abbreviations}
+
+%The definition below divide the nomenclatures to 
+%2 groups ``Symbols'' and ``Abbreviations''
+%They have to be used ALWAYS when defining Symbol or abbreviation
+%Usage NSA\nomenclature[S]{NSA}{Is your friend}
+\RequirePackage{ifthen}
+\renewcommand{\nomgroup}[1]{%
+    \ifthenelse{\equal{#1}{S}}{\item[\textbf{Symbols}]}{%
+        \ifthenelse{\equal{#1}{A}}{\item[\textbf{Abbreviations}]}
+    } 
+}
+\makenomenclature
+%%%Nomenclature definition ends here
+
+%Some useful packages
+\RequirePackage{lipsum}%For testing
+%\RequirePackage{cite}
+\RequirePackage{siunitx}
+\RequirePackage[framemethod=default]{mdframed}
+
+%%Text area horisontal dimensions and position no need to touch
+\setlength{\hoffset}{-1in}
+\setlength{\oddsidemargin}{35mm}
+\setlength{\evensidemargin}{25mm}
+\setlength{\textwidth}{15cm}
+%%Text area verical dimensions and position no need to touch
+\setlength{\voffset}{-1in}
+\setlength{\headsep}{7mm}
+\setlength{\headheight}{1em}
+\setlength{\topmargin}{25mm-\headheight-\headsep}
+\setlength{\textheight}{23cm}
+
+
+% example on how to define custom fig widths to 
+%be used for figures etc.
+\newlength{\twofig}
+\setlength{\twofig}{0.45\textwidth}
+\newlength{\threefig}
+\setlength{\threefig}{0.3\textwidth}
+
+
+\endinput
