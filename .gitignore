@@ -1,4 +1,5 @@
 Makefile
+*-eps-converted-to.pdf
 __pycache__
 *.eps
 *~
