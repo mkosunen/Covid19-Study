@@ -1,6 +1,5 @@
+Makefile
+__pycache__
+*.eps
+*~
 *.swp
-*.bak
-*.sav
-*-eps-converted-to.pdf
-*.*~
-

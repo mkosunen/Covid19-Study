@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+DIR=$( cd  `dirname $0` && pwd )
+
+cd $DIR/Covid19_SydeKick && ./configure && cd ..
+
+##Generate Makefile here
+MODULEDIR=$DIR/Covid19_SydeKick
+
+CURRENTFILE=${DIR}/Makefile
+echo "Generating Makefile"
+
+cat << EOF > ${DIR}/Makefile
+.PHONY: all sim report clean
+
+all: sim report
+
+sim:
+	cd ${MODULEDIR} && make
+   
+report:
+	cd ${DIR} && ./makearticle
+
+clean:
+	cd ${MODULEDIR} && make clean
+
+EOF
+
+exit 0
+
+
+
+
