@@ -1,0 +1,3 @@
+[submodule "Covid19_SydeKick"]
+	path = Covid19_SydeKick
+	url = git@github.com:mkosunen/Covid19_SydeKick.git
