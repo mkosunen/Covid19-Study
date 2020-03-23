@@ -10,7 +10,7 @@ accurate or not.
 
 Regardless of it's
 severity, COVID19 offers a great opportunity to apply mathematics and control
-theory to societal problems.This work is personal effort to understand 'the
+theory to societal problems.This work is personal effort to understand `the
 truth', he laws behind the societal (control) systems, their responses and
 their stability.  It may also reveal discrepancies between the reality and the
 executed political actions. Ability to identify them I consider very important
@@ -65,15 +65,15 @@ information will provide us accurate information about $S$.
 
 As shown before, $K_l$ and $S$ can be measured. So can be the reproduction
 number $R_0$, which for the COVID19 have been estimated to be $R_0=2.06 \ldots
-2.52$ \cite{Zhang_S2020}.
+2.52$~\cite{Zhang_S2020}.
 These two expansion mechanisms are related, ans they should match at least in early phases of
 epidemic, when deaths, recoveries, countermeasures, and developing immunity do not hinder the
 spreading. The relation can be expressed as 
 \begin{align}
     K^{T_c}&= 1+R_0\\
-    T_c&=\frac{log\left(R_0+1\right)}{log\left(K\right)},
+    T_c&=\frac{\ln\left(R_0+1\right)}{\ln\left(K\right)},
 \end{align}
-where $T_c$ is the contamination time, i.e. the effective time during which the patients
+where $T_c$ is the contamination time, i.e.\ the effective time during which the patients
 spread the disease. It can be thought as a time before patient get's so
 visibly sick that he will be isolated/quarantined from the community and thus
 does not spread the disease. This time is specific to disease and we may
@@ -82,7 +82,7 @@ assume here it is relatively constant.
 We may now denote the spreading coefficient, measured as the ratio of increase
 to the active cases, in the beginning of the epidemic as $S_0$. Thus
 \begin{align}
-    T_c&=\frac{log\left(R_0+1\right)}{log\left(1+S_0\right)}
+    T_c&=\frac{\ln\left(R_0+1\right)}{\ln\left(1+S_0\right)}
 \end{align}
 For present COVID19, $S_0$ seems to be, with reasonable number of cases,
 between 0.3 and 0.2, thus we may use $S_0=0.25$ in our example
@@ -91,7 +91,7 @@ period
 \begin{align}
     S_0&=0.25\\
     R_0&=2.5\\
-    T_c&=\frac{ln\left(1+R_0\right)}{ln\left(1+S_0\right)}=5,6.
+    T_c&=\frac{\ln\left(1+R_0\right)}{\ln\left(1+S_0\right)}=5,6.
 \end{align}
 Thus the estimate of the contamination time is 5,6 days, and we assume that to
 remain constant.
@@ -103,8 +103,8 @@ reduce $S$ in order to stop the epidemic under assumption that $T_T$ does not
 change}. Stopping the epidemic means $R_0< 1$. We may now calculate the limit
 $S_l$ that should result in declining numbers of active patients.
 \begin{align}
-    \left(1+S_l\right)^{T_c}&<2\\
-    S_l&<2^{\frac{ln\left(1+S_0\right)}{ln\left(1+R_0\right)}}-1.
+    {\left(1+S_l\right)}^{T_c}&<2\\
+    S_l&<2^{\frac{\ln\left(1+S_0\right)}{\ln\left(1+R_0\right)}}-1.
 \end{align}
 With the given values for current COVID19 outbreak $S_l<0.13$. 
 
@@ -113,9 +113,8 @@ presented.
 \begin{table}[h!]
   \begin{center}
       \caption{Spreading coefficient limit value under various assumptions on
-      reproduction number $R_0$ and initial spreading coefficient $S_0$}
-    \label{tab:variants}
-    \begin{tabular}{c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      reproduction number $R_0$ and initial spreading coefficient $S_0$}\label{tab:variants}
+   \begin{tabular}{c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
         \textbf{$R_0$} & \textbf{$S_0$} & \textbf{$T_c$} & \textbf{$S_l$}\\
       \hline
       2 &0.25&4,9&0.15 \\
@@ -141,6 +140,18 @@ quite safe.
 
 As the global data for the cases have been collected and made generally
 available it is possible to evaluate the theory by comparing it to
-existing data. That comparison well be presented in Chapter
-\ref{chap:observations}.
+existing data. That comparison well be presented in Chapter~\ref{chap:observations}.
+
+\section{Parameter estimation with measured data}
+On March 23 friend of mine,  Teemu Lehtimäki suggested that the measured
+relative growth i.e.\ in Sweden and the trend of measured cases do not support
+the $R_0$ parameter value 2,x, but that the correct number could be higher. The
+arising is, what is the most reliable way to estimate $T_t$ in the beginning
+of the epidemic, when the behaviour of the individuals is not affected by the
+counter measures, but when the cases are relatively scarce. I think one
+possible 
+method is LMS curve fitting based on measured relative growth and difference
+of cases $y\left(n\right)-y\left(n-x\right)$. Unfortunately I
+have some work do do, so I leave derivation of this for later dates.
+
 
