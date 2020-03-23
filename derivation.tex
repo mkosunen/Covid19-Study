@@ -44,9 +44,9 @@ Under assumption that infected persons spread the disease with constant
 fraction of cases per day, the newly infected persons tomorrow can be
 expressed as
 \begin{align}
-    y\left(n+1\right)&=K y\left(n\right)\\
-    K&= \frac{y\left(n+1\right)}{y\left(n\right)}=
-    \frac{y\left(n+1\right)-y\left(n\right)}{y\left(n\right)}+1
+    y\left(n\right)&=K y\left(n-1\right)\\
+    K&= \frac{y\left(n\right)}{y\left(n-1\right)}=
+    \frac{y\left(n\right)-y\left(n-1\right)}{y\left(n-1\right)}+1
 \end{align}
 where $y\left(n\right)$ is the number of infected persons on day $n$. Without
 limiting measures $K$ is assumed here to be relatively constant. 
@@ -54,7 +54,7 @@ limiting measures $K$ is assumed here to be relatively constant.
 We may express $K$ as
 \begin{align}
     K&= 1+S\\
-    S &= \frac{y\left(n+1\right)-y\left(n\right)}{y\left(n\right)},
+    S &= \frac{y\left(n\right)-y\left(n-1\right)}{y\left(n-1\right)},
 \end{align}
 where $S$ is spreading coefficient, the \emph{ ratio of of daily increase of
     cases  to
@@ -71,7 +71,7 @@ epidemic, when deaths, recoveries, countermeasures, and developing immunity do n
 spreading. The relation can be expressed as 
 \begin{align}
     K^{T_c}&= 1+R_0\\
-    T_c&=\frac{\ln\left(R_0+1\right)}{\ln\left(K\right)},
+    T_c&=\frac{\ln\left(1+R_0\right)}{\ln\left(K\right)},
 \end{align}
 where $T_c$ is the contamination time, i.e.\ the effective time during which the patients
 spread the disease. It can be thought as a time before patient get's so
@@ -82,7 +82,7 @@ assume here it is relatively constant.
 We may now denote the spreading coefficient, measured as the ratio of increase
 to the active cases, in the beginning of the epidemic as $S_0$. Thus
 \begin{align}
-    T_c&=\frac{\ln\left(R_0+1\right)}{\ln\left(1+S_0\right)}
+    T_c&=\frac{\ln\left(1+R_0\right)}{\ln\left(1+S_0\right)}
 \end{align}
 For present COVID19, $S_0$ seems to be, with reasonable number of cases,
 between 0.3 and 0.2, thus we may use $S_0=0.25$ in our example
