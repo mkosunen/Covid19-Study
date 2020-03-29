@@ -1,6 +1,6 @@
 Makefile
 *-eps-converted-to.pdf
 __pycache__
-*.eps
+./Figures/Analysis_figures/*.eps
 *~
 *.swp
