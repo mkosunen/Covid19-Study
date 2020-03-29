@@ -1,27 +1,3 @@
-\chapter{Preface}
-This document is created purely from personal interest in mathematics and
-programming. I have no background in medicine nor in social sciences
-whatsoever, and everything I present may be commonly known for the people
-having expertise on those fields. Document does not fulfill the requirements
-of scientific publication, and it is certainly not peer-reviewed, and is
-evolving over time. Therefore, the information should be considered more or
-less unreliable, and you should use your own judgement to evaluate if it is
-accurate or not. 
-
-Regardless of it's
-severity, COVID19 offers a great opportunity to apply mathematics and control
-theory to societal problems.This work is personal effort to understand `the
-truth', he laws behind the societal (control) systems, their responses and
-their stability.  It may also reveal discrepancies between the reality and the
-executed political actions. Ability to identify them I consider very important
-during the times we are living.
-\\
-\\
-In Puotila, eastern Helsinki, Finland, March 22, 2020\\
-\\
-Marko
-
-
 \chapter{Derivation of spreading coefficient limit of declining infection}\label{chap:principles}
 
 In this document I try to develop a model that would help me to understand the
@@ -91,9 +67,9 @@ period
 \begin{align}
     S_0&=0.25\\
     R_0&=2.5\\
-    T_c&=\frac{\ln\left(1+R_0\right)}{\ln\left(1+S_0\right)}=5,6.
+    T_c&=\frac{\ln\left(1+R_0\right)}{\ln\left(1+S_0\right)}=5.6.
 \end{align}
-Thus the estimate of the contamination time is 5,6 days, and we assume that to
+Thus the estimate of the contamination time is 5.6 days, and we assume that to
 remain constant.
 
 Under ongoing epidemic, public authorities and private persons perform
@@ -117,9 +93,9 @@ presented.
    \begin{tabular}{c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
         \textbf{$R_0$} & \textbf{$S_0$} & \textbf{$T_c$} & \textbf{$S_l$}\\
       \hline
-      2 &0.25&4,9&0.15 \\
-      2 &0.3&4,2&0.18\\
-      2 &0.4&3,7&0.21\\
+      2 &0.25&4.9&0.15 \\
+      2 &0.3&4.2&0.18\\
+      2 &0.4&3.7&0.21\\
       2.5&0.25&5.6&0.13\\
       2.5&0.3&4.8&0.16\\
       2.5&0.4&4.2&0.18\\
@@ -130,12 +106,12 @@ presented.
   \end{center}
 \end{table}
 These values reveal that with given parameter spread there is no
-\emph{practical} difference in contamination time, it lies between 3,7 to 6,2
+\emph{practical} difference in contamination time, it lies between 3.7 to 6.2
 days. This means practically two days difference, easily masked by individual
 variation and real life uncertainties. 
 Furthermore we may quite
 certainly say there is no chance of epidemic to stop with spreading factors
-larger than 0,2. Assuming 0.15 might be wishful thinking but may work, and 0.1 should be
+larger than 0.2. Assuming 0.15 might be wishful thinking but may work, and 0.1 should be
 quite safe. 
 
 As the global data for the cases have been collected and made generally
@@ -145,7 +121,7 @@ existing data. That comparison well be presented in Chapter~\ref{chap:observatio
 \section{Parameter estimation with measured data}
 On March 23 friend of mine,  Teemu Lehtimäki suggested that the measured
 relative growth i.e.\ in Sweden and the trend of measured cases do not support
-the $R_0$ parameter value 2,x, but that the correct number could be higher. The
+the $R_0$ parameter value 2.x, but that the correct number could be higher. The
 arising is, what is the most reliable way to estimate $T_t$ in the beginning
 of the epidemic, when the behaviour of the individuals is not affected by the
 counter measures, but when the cases are relatively scarce. I think one
@@ -154,4 +130,68 @@ method is LMS curve fitting based on measured relative growth and difference
 of cases $y\left(n\right)-y\left(n-x\right)$. Unfortunately I
 have some work do do, so I leave derivation of this for later dates.
 
+\chapter{Discrete time infection system model}
+In order to gain more insight on input-output relation (i.e the
+transfer function),,stability and critical parameters to be identified, I
+developed s simple discrete-time system model.
+
+Fig \ref{fig:infection_system} depicts a discrete time infection system model
+in Z-domain. $X(Z)$ are the
+    the infectious patients entering the community with spreading factor $S$.
+$X_q(Z)$ are the infectious patients entering the system through
+quarantine. They are known to be infectious, but they are isolated.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/Infection_system.eps}
+    \caption{Discrete time Infection system in Z-domain.}\label{fig:infection_system}
+\end{figure}
+
+Fig \ref{fig:infection_feedback_system} presents the infection feedback
+eventually causing the exponential growth. Every infectious patient $X$ will
+initiate an infection chain over $T_c$ days, adding $S$ new infections. 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/Contamination_feedback_system.eps}
+    \caption{Infection feedback system in Z-domain.}\label{fig:infection_feedback_system}
+\end{figure}
+
+Due to the feedback through $W(Z)$, the system will eventually have positive
+feedback causing exponential type of growth. The parameters characterizing the
+system behaviour are listed in Table \ref{table:system parameters}
+\begin{table}
+    \centering
+    \caption{Infection system parameters}
+    \begin{tabular}{l|p{10cm}}
+        \textbf{Parameter} & \textbf{Description} \\
+        \hline
+        $T_i$ & Incubation period. It is assumed that the patient is not
+        infectious during this time. \\
+        $T_c$ & Contamination period. Patiend spreads the disease during this
+        time until is isolated from the population because of sickness or
+        treatment.\\
+        $T_m$ & Monitoring delay. The time from the patient becoming
+        infectious to registration of the case.\\
+        $r_d$ & Death rate. The share of the registererd patients dying.\\
+        $T_d$ & Delay of death. Time from registration to death.\\
+        $T_r$ & Recovery time
+    \end{tabular}
+    \label{tab:system_parameters}
+\end{table}
+
+The parameter $S$, is multiplying the sample stream in feedback system
+$W(Z)$. Therefore following observations about the nature of the
+system can be made.
+\begin{itemize}
+    \item System is not linear time invariant, but can be considered piecewise
+        linear over
+        the coherence time on $S$, i.e. during the periods $S$ is not altered,
+        and linear time invariant, if $S$ is considered constant.
+    \item As the fraction of recovered and dead patiences increases, the $S$
+        is decreased. This phenomenon is not included in this model,
+        indicating infinite population.
+    \item Timing relation of the signal and $S$ in the feedback path indicates
+        that the effect of changes in policies affecting $S$ are immediate to
+        the spreading of the disease, and visible in the statistics after the
+        measurement delay $T_M$.
+\end{itemize}
 
