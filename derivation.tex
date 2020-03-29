@@ -120,15 +120,14 @@ existing data. That comparison well be presented in Chapter~\ref{chap:observatio
 
 \section{Parameter estimation with measured data}
 On March 23 friend of mine,  Teemu Lehtimäki suggested that the measured
-relative growth i.e.\ in Sweden and the trend of measured cases do not support
+relative growth e.g.\ in Sweden and the trend of measured cases do not support
 the $R_0$ parameter value 2.x, but that the correct number could be higher. The
 arising is, what is the most reliable way to estimate $T_t$ in the beginning
 of the epidemic, when the behaviour of the individuals is not affected by the
 counter measures, but when the cases are relatively scarce. I think one
 possible 
 method is LMS curve fitting based on measured relative growth and difference
-of cases $y\left(n\right)-y\left(n-x\right)$. Unfortunately I
-have some work do do, so I leave derivation of this for later dates.
+of cases $y\left(n\right)-y\left(n-x\right)$. 
 
 \chapter{Discrete time infection system model}
 In order to gain more insight on input-output relation (i.e the
@@ -164,6 +163,7 @@ system behaviour are listed in Table \ref{table:system parameters}
     \begin{tabular}{l|p{10cm}}
         \textbf{Parameter} & \textbf{Description} \\
         \hline
+        $S$ & Spreading factor.\\
         $T_i$ & Incubation period. It is assumed that the patient is not
         infectious during this time. \\
         $T_c$ & Contamination period. Patiend spreads the disease during this
@@ -173,7 +173,7 @@ system behaviour are listed in Table \ref{table:system parameters}
         infectious to registration of the case.\\
         $r_d$ & Death rate. The share of the registererd patients dying.\\
         $T_d$ & Delay of death. Time from registration to death.\\
-        $T_r$ & Recovery time
+        $T_r$ & Recovery time.
     \end{tabular}
     \label{tab:system_parameters}
 \end{table}
