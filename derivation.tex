@@ -8,7 +8,10 @@ the COVID19 virus.
 I start the derivation from the measured reproduction number $R0$. We know that
 the nature of the growth of the infection is exponential which inherently
 means the disease is spread by infected persons infecting the uninfected ones
-over certain period of time.
+over certain period of time. Later on in Chapter \ref{sect:discrete_time} I add a more detailed discrete time
+system model to reveal the effects of the feedback delays. That model is still
+under construction, and I need to fit the system parameter presented in the
+following to that model.
 
 With COVID19 there is lots of statistics about number of
 infected persons, daily new cases, deaths and recoveries. Based on these
@@ -129,13 +132,13 @@ possible
 method is LMS curve fitting based on measured relative growth and difference
 of cases $y\left(n\right)-y\left(n-x\right)$. 
 
-\chapter{Discrete time infection system model}
+\chapter{Discrete time infection system model}\label{sect:discrete_time}
 In order to gain more insight on input-output relation (i.e the
 transfer function),,stability and critical parameters to be identified, I
 developed s simple discrete-time system model.
 
 Fig \ref{fig:infection_system} depicts a discrete time infection system model
-in Z-domain. $X(Z)$ are the
+in Z-domain. $X(Z)$ are 
     the infectious patients entering the community with spreading factor $S$.
 $X_q(Z)$ are the infectious patients entering the system through
 quarantine. They are known to be infectious, but they are isolated.
@@ -166,12 +169,12 @@ system behaviour are listed in Table \ref{table:system parameters}
         $S$ & Spreading factor.\\
         $T_i$ & Incubation period. It is assumed that the patient is not
         infectious during this time. \\
-        $T_c$ & Contamination period. Patiend spreads the disease during this
+        $T_c$ & Contamination period. Patient spreads the disease during this
         time until is isolated from the population because of sickness or
         treatment.\\
         $T_m$ & Monitoring delay. The time from the patient becoming
         infectious to registration of the case.\\
-        $r_d$ & Death rate. The share of the registererd patients dying.\\
+        $r_d$ & Death rate. The share of the registered patients dying.\\
         $T_d$ & Delay of death. Time from registration to death.\\
         $T_r$ & Recovery time.
     \end{tabular}
@@ -192,6 +195,6 @@ system can be made.
     \item Timing relation of the signal and $S$ in the feedback path indicates
         that the effect of changes in policies affecting $S$ are immediate to
         the spreading of the disease, and visible in the statistics after the
-        measurement delay $T_M$.
+        measurement delay $T_m$.
 \end{itemize}
 
