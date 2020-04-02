@@ -203,7 +203,7 @@ question remains why my model seems to work, even though it is timing wise
 incorrect. My current thoughts are the following and subject to change. The
 way I originally thought the exponential growth process is, that \emph{a
     patient infects persons as geometric series so that total number of persons over the
-contamination person is increased by R_0}. This is technically incorrect.
+contamination person is increased by reproduction number $R$}. This is technically incorrect.
 However, it can be modeled as $s_k$  values in Fig. \ref{fig:infection_feeedback_system}
 \begin{align}
     s_k&=\left(1+s\right)^k-1, \quad k=\left[0,T_c\right].
@@ -227,6 +227,9 @@ accurate, and measuring the relative growth would reflect quite accurately the
 characteristics of the system. The remaining delay is the measurement delay
 $T_m$, which is not related to the disease, but the system measuring it. This
 does not affect the relative growth number, only delays the result by $T_m$-
+It should also be noted, that we may measure the contamination period by
+monitoring the relative growth at the point where the increase of the number
+of active cases stops. 
 
 Therefore following observations about the nature of the
 system can be made.
