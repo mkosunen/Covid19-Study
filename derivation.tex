@@ -224,7 +224,11 @@ the period over which the patient is infectious but not sick enough to isolate
 himself. At the end of the incubation period, the patient has infected $R$
 patients. This effectively means $T_c=T_i$, which would mean that the model is
 accurate, and measuring the relative growth would reflect quite accurately the
-characteristics of the system. The remaining delay is the measurement delay
+characteristics of the system. It also distributes the exponential growth
+over the $T_c$ with exponential emphasis on the last days. More considerations
+are required to determine if this is accurate enough.
+
+The remaining delay is the measurement delay
 $T_m$, which is not related to the disease, but the system measuring it. This
 does not affect the relative growth number, only delays the result by $T_m$-
 It should also be noted, that we may measure the contamination period by
