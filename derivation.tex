@@ -206,7 +206,7 @@ way I originally thought the exponential growth process is, that \emph{a
 contamination person is increased by reproduction number $R$}. This is technically incorrect.
 However, it can be modeled as $s_k$  values in Fig. \ref{fig:infection_feeedback_system}
 \begin{align}
-    s_k&=\left(1+s\right)^k-1, \quad k=\left[0,T_c\right].
+    s_k&=s\left(1+s\right)^k, \quad k=\left[0,T_c-1\right].
 \end{align}
 This has the largest values after $T_c$, which compensates the lack of $T_i$.
 Actually, as  
