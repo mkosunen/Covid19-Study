@@ -12,7 +12,6 @@ over certain period of time. Later on in Chapter \ref{sect:discrete_time} I add 
 system model to reveal the effects of the feedback delays. That model is still
 under construction, and I need to fit the system parameter presented in the
 following to that model.
-
 With COVID19 there is lots of statistics about number of
 infected persons, daily new cases, deaths and recoveries. Based on these
 statistics we may derive the estimate of the contamination time during which
@@ -159,10 +158,10 @@ initiate an infection chain over $T_c$ days, adding $S$ new infections.
 
 Due to the feedback through $W(Z)$, the system will eventually have positive
 feedback causing exponential type of growth. The parameters characterizing the
-system behaviour are listed in Table \ref{table:system parameters}
+system behaviour are listed in Table~\ref{table:system parameters}.
 \begin{table}
     \centering
-    \caption{Infection system parameters}
+    \caption{Infection system parameters}\label{table:system parameters}
     \begin{tabular}{l|p{10cm}}
         \textbf{Parameter} & \textbf{Description} \\
         \hline
@@ -192,8 +191,8 @@ The parameters $s_k$ define define the feedback system $W(Z)$ In simplest case,
 $s_0=R_0$, and the other feedback coefficients are zero. This will provide
 the growth due to feedback on a single day with the delay of $T_i$. To use
 relative growth as a measure in this kind of a system, we should estimate the
-$T_i$ accurately, and use the past values $T\left(n-T_i\right)$ in calculation
-of relative growth. Currently I use $Y\left(n-1\right)$ in calculation of the
+$T_i$ accurately, and use the past values $y\left(n-T_i\right)$ in calculation
+of relative growth. Currently I use $y\left(n-1\right)$ in calculation of the
 relative growth, and it does not take into account the incubation period at
 all. Adding the delay would increase the relative growth values on by the
 average gain of over incubation period, (which should be $R$). 
@@ -204,12 +203,12 @@ incorrect. My current thoughts are the following and subject to change. The
 way I originally thought the exponential growth process is, that \emph{a
     patient infects persons as geometric series so that total number of persons over the
 contamination person is increased by reproduction number $R$}. This is technically incorrect.
-However, it can be modeled as $s_k$  values in Fig. \ref{fig:infection_feeedback_system}
+However, it can be modeled as $s_k$  values in Fig.~\ref{fig:infection_feedback_system}
 \begin{align}
     s_k&=s\left(1+s\right)^k, \quad k=\left[0,T_c-1\right].
 \end{align}
-This htive sum of the growth after $T_c$, which compensates the lack of $T_i$.
-Actually, is  
+This is the  sum of the growth after $T_c$, which compensates the lack of $T_i$.
+Actually, as  
 \begin{align}
     s_{T_c}&=\left(1+s\right)^{T_c}-1=R,
 \end{align}
